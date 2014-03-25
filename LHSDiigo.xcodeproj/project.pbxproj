@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		373115C918E235230072A986 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115C818E235230072A986 /* Foundation.framework */; };
+		373115CE18E235230072A986 /* LHSDiigo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 373115CD18E235230072A986 /* LHSDiigo.h */; };
+		373115D018E235230072A986 /* LHSDiigo.m in Sources */ = {isa = PBXBuildFile; fileRef = 373115CF18E235230072A986 /* LHSDiigo.m */; };
+		373115D718E235230072A986 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115D618E235230072A986 /* XCTest.framework */; };
+		373115D818E235230072A986 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115C818E235230072A986 /* Foundation.framework */; };
+		373115DA18E235230072A986 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115D918E235230072A986 /* UIKit.framework */; };
+		373115DD18E235230072A986 /* libLHSDiigo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115C518E235230072A986 /* libLHSDiigo.a */; };
+		373115E318E235230072A986 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 373115E118E235230072A986 /* InfoPlist.strings */; };
+		373115E518E235230072A986 /* LHSDiigoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 373115E418E235230072A986 /* LHSDiigoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		373115DB18E235230072A986 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373115BD18E235230072A986 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 373115C418E235230072A986;
+			remoteInfo = LHSDiigo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		373115C318E235230072A986 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				373115CE18E235230072A986 /* LHSDiigo.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		373115C518E235230072A986 /* libLHSDiigo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLHSDiigo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		373115C818E235230072A986 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		373115CC18E235230072A986 /* LHSDiigo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LHSDiigo-Prefix.pch"; sourceTree = "<group>"; };
+		373115CD18E235230072A986 /* LHSDiigo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSDiigo.h; sourceTree = "<group>"; };
+		373115CF18E235230072A986 /* LHSDiigo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSDiigo.m; sourceTree = "<group>"; };
+		373115D518E235230072A986 /* LHSDiigoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LHSDiigoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		373115D618E235230072A986 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		373115D918E235230072A986 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		373115E018E235230072A986 /* LHSDiigoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LHSDiigoTests-Info.plist"; sourceTree = "<group>"; };
+		373115E218E235230072A986 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		373115E418E235230072A986 /* LHSDiigoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSDiigoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		373115C218E235230072A986 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373115C918E235230072A986 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		373115D218E235230072A986 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373115D718E235230072A986 /* XCTest.framework in Frameworks */,
+				373115DA18E235230072A986 /* UIKit.framework in Frameworks */,
+				373115DD18E235230072A986 /* libLHSDiigo.a in Frameworks */,
+				373115D818E235230072A986 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		373115BC18E235230072A986 = {
+			isa = PBXGroup;
+			children = (
+				373115CA18E235230072A986 /* LHSDiigo */,
+				373115DE18E235230072A986 /* LHSDiigoTests */,
+				373115C718E235230072A986 /* Frameworks */,
+				373115C618E235230072A986 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		373115C618E235230072A986 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				373115C518E235230072A986 /* libLHSDiigo.a */,
+				373115D518E235230072A986 /* LHSDiigoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		373115C718E235230072A986 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				373115C818E235230072A986 /* Foundation.framework */,
+				373115D618E235230072A986 /* XCTest.framework */,
+				373115D918E235230072A986 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		373115CA18E235230072A986 /* LHSDiigo */ = {
+			isa = PBXGroup;
+			children = (
+				373115CD18E235230072A986 /* LHSDiigo.h */,
+				373115CF18E235230072A986 /* LHSDiigo.m */,
+				373115CB18E235230072A986 /* Supporting Files */,
+			);
+			path = LHSDiigo;
+			sourceTree = "<group>";
+		};
+		373115CB18E235230072A986 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				373115CC18E235230072A986 /* LHSDiigo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		373115DE18E235230072A986 /* LHSDiigoTests */ = {
+			isa = PBXGroup;
+			children = (
+				373115E418E235230072A986 /* LHSDiigoTests.m */,
+				373115DF18E235230072A986 /* Supporting Files */,
+			);
+			path = LHSDiigoTests;
+			sourceTree = "<group>";
+		};
+		373115DF18E235230072A986 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				373115E018E235230072A986 /* LHSDiigoTests-Info.plist */,
+				373115E118E235230072A986 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		373115C418E235230072A986 /* LHSDiigo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 373115E818E235230072A986 /* Build configuration list for PBXNativeTarget "LHSDiigo" */;
+			buildPhases = (
+				373115C118E235230072A986 /* Sources */,
+				373115C218E235230072A986 /* Frameworks */,
+				373115C318E235230072A986 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LHSDiigo;
+			productName = LHSDiigo;
+			productReference = 373115C518E235230072A986 /* libLHSDiigo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		373115D418E235230072A986 /* LHSDiigoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 373115EB18E235230072A986 /* Build configuration list for PBXNativeTarget "LHSDiigoTests" */;
+			buildPhases = (
+				373115D118E235230072A986 /* Sources */,
+				373115D218E235230072A986 /* Frameworks */,
+				373115D318E235230072A986 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				373115DC18E235230072A986 /* PBXTargetDependency */,
+			);
+			name = LHSDiigoTests;
+			productName = LHSDiigoTests;
+			productReference = 373115D518E235230072A986 /* LHSDiigoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		373115BD18E235230072A986 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Lionheart Software LLC";
+			};
+			buildConfigurationList = 373115C018E235230072A986 /* Build configuration list for PBXProject "LHSDiigo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 373115BC18E235230072A986;
+			productRefGroup = 373115C618E235230072A986 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				373115C418E235230072A986 /* LHSDiigo */,
+				373115D418E235230072A986 /* LHSDiigoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		373115D318E235230072A986 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373115E318E235230072A986 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		373115C118E235230072A986 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373115D018E235230072A986 /* LHSDiigo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		373115D118E235230072A986 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				373115E518E235230072A986 /* LHSDiigoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		373115DC18E235230072A986 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 373115C418E235230072A986 /* LHSDiigo */;
+			targetProxy = 373115DB18E235230072A986 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		373115E118E235230072A986 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				373115E218E235230072A986 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		373115E618E235230072A986 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		373115E718E235230072A986 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		373115E918E235230072A986 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/LHSDiigo.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LHSDiigo/LHSDiigo-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		373115EA18E235230072A986 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/LHSDiigo.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LHSDiigo/LHSDiigo-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		373115EC18E235230072A986 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LHSDiigo/LHSDiigo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LHSDiigoTests/LHSDiigoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		373115ED18E235230072A986 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LHSDiigo/LHSDiigo-Prefix.pch";
+				INFOPLIST_FILE = "LHSDiigoTests/LHSDiigoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		373115C018E235230072A986 /* Build configuration list for PBXProject "LHSDiigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				373115E618E235230072A986 /* Debug */,
+				373115E718E235230072A986 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		373115E818E235230072A986 /* Build configuration list for PBXNativeTarget "LHSDiigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				373115E918E235230072A986 /* Debug */,
+				373115EA18E235230072A986 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		373115EB18E235230072A986 /* Build configuration list for PBXNativeTarget "LHSDiigoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				373115EC18E235230072A986 /* Debug */,
+				373115ED18E235230072A986 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 373115BD18E235230072A986 /* Project object */;
+}
