@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A83DA076-5338-487E-A448-AB8E4F6B4DA2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LHSDiigo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B2F286A9-1BCA-42C3-AB4C-A4D07A1861B9</key>
+		<string>lionheart:LHSDiigo</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LHSDiigo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B2F286A9-1BCA-42C3-AB4C-A4D07A1861B9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>lionheart:LHSDiigo</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B2F286A9-1BCA-42C3-AB4C-A4D07A1861B9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B2F286A9-1BCA-42C3-AB4C-A4D07A1861B9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LHSDiigo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

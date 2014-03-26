@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		373115C918E235230072A986 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115C818E235230072A986 /* Foundation.framework */; };
-		373115CE18E235230072A986 /* LHSDiigo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 373115CD18E235230072A986 /* LHSDiigo.h */; };
-		373115D018E235230072A986 /* LHSDiigo.m in Sources */ = {isa = PBXBuildFile; fileRef = 373115CF18E235230072A986 /* LHSDiigo.m */; };
+		373115CE18E235230072A986 /* LHSDiigoClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 373115CD18E235230072A986 /* LHSDiigoClient.h */; };
+		373115D018E235230072A986 /* LHSDiigoClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 373115CF18E235230072A986 /* LHSDiigoClient.m */; };
 		373115D718E235230072A986 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115D618E235230072A986 /* XCTest.framework */; };
 		373115D818E235230072A986 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115C818E235230072A986 /* Foundation.framework */; };
 		373115DA18E235230072A986 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115D918E235230072A986 /* UIKit.framework */; };
@@ -35,7 +35,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				373115CE18E235230072A986 /* LHSDiigo.h in CopyFiles */,
+				373115CE18E235230072A986 /* LHSDiigoClient.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,8 +45,8 @@
 		373115C518E235230072A986 /* libLHSDiigo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLHSDiigo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		373115C818E235230072A986 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		373115CC18E235230072A986 /* LHSDiigo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LHSDiigo-Prefix.pch"; sourceTree = "<group>"; };
-		373115CD18E235230072A986 /* LHSDiigo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSDiigo.h; sourceTree = "<group>"; };
-		373115CF18E235230072A986 /* LHSDiigo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSDiigo.m; sourceTree = "<group>"; };
+		373115CD18E235230072A986 /* LHSDiigoClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSDiigoClient.h; sourceTree = "<group>"; };
+		373115CF18E235230072A986 /* LHSDiigoClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSDiigoClient.m; sourceTree = "<group>"; };
 		373115D518E235230072A986 /* LHSDiigoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LHSDiigoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		373115D618E235230072A986 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		373115D918E235230072A986 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -110,8 +110,8 @@
 		373115CA18E235230072A986 /* LHSDiigo */ = {
 			isa = PBXGroup;
 			children = (
-				373115CD18E235230072A986 /* LHSDiigo.h */,
-				373115CF18E235230072A986 /* LHSDiigo.m */,
+				373115CD18E235230072A986 /* LHSDiigoClient.h */,
+				373115CF18E235230072A986 /* LHSDiigoClient.m */,
 				373115CB18E235230072A986 /* Supporting Files */,
 			);
 			path = LHSDiigo;
@@ -224,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				373115D018E235230072A986 /* LHSDiigo.m in Sources */,
+				373115D018E235230072A986 /* LHSDiigoClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +405,7 @@
 				373115EA18E235230072A986 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		373115EB18E235230072A986 /* Build configuration list for PBXNativeTarget "LHSDiigoTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +414,7 @@
 				373115ED18E235230072A986 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
