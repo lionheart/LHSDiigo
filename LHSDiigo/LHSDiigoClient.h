@@ -15,10 +15,11 @@ typedef void (^LHSDiigoGenericBlock)(id);
 typedef void (^LHSDiigoArrayBlock)(NSArray *);
 typedef void (^LHSDiigoErrorBlock)(NSError *);
 
-@interface LHSDiigoClient : NSObject <NSURLConnectionDelegate, NSURLSessionDelegate>
+@interface LHSDiigoClient : NSObject <NSURLConnectionDelegate, NSURLSessionDelegate, NSURLSessionDataDelegate>
 
 @property (nonatomic, strong) NSString *apiKey;
 @property (nonatomic, strong) NSURLSession *session;
+@property (nonatomic, strong) NSData *receivedData;
 
 + (instancetype)sharedClient;
 

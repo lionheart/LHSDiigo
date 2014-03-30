@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "LHSDiigoClient.h"
+
 
 @interface LHSDiigoTests : XCTestCase
 
@@ -28,7 +30,23 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    LHSDiigoClient *client = [LHSDiigoClient sharedClient];
+    NSDictionary *inventory = @{
+                                @"key" : @"37d50bc8a88b01b5",
+                                @"user" : @"jerrypainter",
+                                
+                                };
+    [client setUsername:@"jerrypainter" password:@"wzx13605701028"];
+    
+    void (^myBlock)(NSData *) = ^(NSData *data){
+        NSData *jdata = data;
+        NSLog(@"completes %@", data);
+        
+    };
+    [client requestPath:@"bookmarks?" method:@"GET" parameters:inventory success:(LHSDiigoGenericBlock)myBlock failure:nil];
+    
+   
 }
 
 @end

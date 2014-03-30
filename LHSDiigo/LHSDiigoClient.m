@@ -71,12 +71,23 @@
         request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
     }
     
+    
+    
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request
                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                     if(error == nil)
+                                                     {
+                                                         self.receivedData = data;
+                                                         NSLog(@"Response %@",data);
+                                                         success(data);
+                                                     }
                                                      
                                                  }];
     [task resume];
 }
+
+
+
 
 #pragma mark - Authentication
 
