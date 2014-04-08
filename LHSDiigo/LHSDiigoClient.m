@@ -68,6 +68,7 @@
     
     NSString *body = [parameters _queryParametersToString];
     if (![method isEqualToString:@"POST"] && body) {
+        [urlComponents addObject:@"?"];
         [urlComponents addObject:body];
     }
     
@@ -81,14 +82,14 @@
     }
     
     
-    
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request
                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                     if(error == nil)
-                                                     {
+                                                     if (!error) {
                                                          self.receivedData = data;
-                                                         NSLog(@"Response %@",data);
                                                          success(data);
+                                                     }
+                                                     else {
+                                                         NSLog(@"%@",error);
                                                      }
                                                      
                                                  }];
@@ -98,16 +99,16 @@
 #pragma mark - Authentication
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
- completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler {
+                            didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+                              completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition,NSURLCredential *credential))completionHandler {
+    
     NSURLCredential *credential = [NSURLCredential credentialWithUser:self.username
                                                              password:self.password
                                                           persistence:NSURLCredentialPersistenceForSession];
     completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
 }
 
-- (void)setUsername:(NSString *)username
-           password:(NSString *)password {
+- (void)setUsername:(NSString *)username password:(NSString *)password {
     self.username = username;
     self.password = password;
 }

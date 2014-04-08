@@ -16,35 +16,28 @@
 
 @implementation LHSDiigoTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample
-{
+- (void)testExample {
     //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-    LHSDiigoClient *client = [LHSDiigoClient sharedClient];
-    NSDictionary *inventory = @{
-                                @"key" : @"37d50bc8a88b01b5",
-                                @"user" : @"jerrypainter",
-                                
-                                };
-    [client setUsername:@"jerrypainter" password:@"wzx13605701028"];
+    LHSDiigoClient *diigoClient = [LHSDiigoClient sharedClient];
+    NSDictionary *apiParameters = @{ @"key" : @"37d50bc8a88b01b5", @"user" : @"jerrypainter"};
+    [diigoClient setUsername:@"jerrypainter" password:@"wzx13605701028"];
     
-    void (^myBlock)(NSData *) = ^(NSData *data){
-        NSData *jdata = data;
-        NSLog(@"completes %@", data);
-        
+    void (^successBlock)(NSData *) = ^(NSData *data) {
+        NSData *receivedData = data;
+        NSLog(@"completes %@", receivedData);
     };
-    [client requestPath:@"bookmarks?" method:@"GET" parameters:inventory success:(LHSDiigoGenericBlock)myBlock failure:nil];
+    
+    [diigoClient requestPath:@"bookmarks" method:@"GET" parameters:apiParameters success:(LHSDiigoGenericBlock)successBlock failure:nil];
     
    
 }
