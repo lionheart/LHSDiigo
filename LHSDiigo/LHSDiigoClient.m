@@ -32,6 +32,13 @@
 
 @end
 
+@interface LHSDiigoClient ()
+
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *password;
+
+@end
+
 @implementation LHSDiigoClient
 
 + (instancetype)sharedClient {
@@ -64,6 +71,8 @@
         [urlComponents addObject:body];
     }
     
+    NSLog(@"%@", urlComponents);
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[urlComponents componentsJoinedByString:@""]]];
     request.HTTPMethod = method;
     
@@ -86,25 +95,21 @@
     [task resume];
 }
 
-
-
-
 #pragma mark - Authentication
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler {
+    NSURLCredential *credential = [NSURLCredential credentialWithUser:self.username
+                                                             password:self.password
+                                                          persistence:NSURLCredentialPersistenceForSession];
+    completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+}
 
 - (void)setUsername:(NSString *)username
            password:(NSString *)password {
-    NSURLCredential *credential = [NSURLCredential credentialWithUser:username
-                                                             password:password
-                                                          persistence:NSURLCredentialPersistencePermanent];
-    
-    NSURLProtectionSpace *protectionSpace = [[NSURLProtectionSpace alloc] initWithHost:@"diigo.com"
-                                                                                  port:0
-                                                                              protocol:@"https"
-                                                                                 realm:nil
-                                                                  authenticationMethod:NSURLAuthenticationMethodHTTPBasic];
-    
-    [self.session.configuration.URLCredentialStorage setDefaultCredential:credential
-                                                       forProtectionSpace:protectionSpace];
+    self.username = username;
+    self.password = password;
 }
 
 @end

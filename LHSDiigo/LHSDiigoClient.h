@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const LHSDiigoBaseURL = @"https://secure.diigo.com/api/v2/";
+static NSString *LHSDiigoBaseURL = @"https://secure.diigo.com/api/v2/";
 
 typedef void (^LHSDiigoEmptyBlock)();
 typedef void (^LHSDiigoGenericBlock)(id);
