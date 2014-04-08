@@ -41,7 +41,7 @@
         [self notify:XCTAsyncTestCaseStatusSucceeded];
     };
     
-    [diigoClient requestPath:@"bookmarks" method:@"GET" parameters:apiParameters success:(LHSDiigoGenericBlock)successBlock failure:nil];
+    [diigoClient requestPath:@"bookmarks" method:@"GET" parameters:apiParameters success:successBlock failure:nil];
     [self waitForStatus: XCTAsyncTestCaseStatusSucceeded timeout:60];
     
    
