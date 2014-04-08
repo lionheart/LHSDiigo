@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A83DA076-5338-487E-A448-AB8E4F6B4DA2</string>
+	<string>FFB4F836-810E-4A54-AE0E-0166C8F5170E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>LHSDiigo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B2F286A9-1BCA-42C3-AB4C-A4D07A1861B9</key>
-		<string>lionheart:LHSDiigo</string>
+		<key>DFB4E5B3-8244-405C-8D08-79F67095B208</key>
+		<string>https://github.com/lionheart/LHSDiigo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>LHSDiigo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B2F286A9-1BCA-42C3-AB4C-A4D07A1861B9</key>
+		<key>DFB4E5B3-8244-405C-8D08-79F67095B208</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>lionheart:LHSDiigo</string>
+	<string>https://github.com/lionheart/LHSDiigo.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B2F286A9-1BCA-42C3-AB4C-A4D07A1861B9</string>
+	<string>DFB4E5B3-8244-405C-8D08-79F67095B208</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B2F286A9-1BCA-42C3-AB4C-A4D07A1861B9</string>
+			<string>DFB4E5B3-8244-405C-8D08-79F67095B208</string>
 			<key>IDESourceControlWCCName</key>
 			<string>LHSDiigo</string>
 		</dict>

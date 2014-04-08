@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "LHSDiigoClient.h"
+#import "XCTestCase+AsyncTesting.h"
 
 
 @interface LHSDiigoTests : XCTestCase
@@ -32,12 +33,16 @@
     NSDictionary *apiParameters = @{ @"key" : @"37d50bc8a88b01b5", @"user" : @"jerrypainter"};
     [diigoClient setUsername:@"jerrypainter" password:@"wzx13605701028"];
     
-    void (^successBlock)(NSData *) = ^(NSData *data) {
-        NSData *receivedData = data;
-        NSLog(@"completes %@", receivedData);
+    LHSDiigoGenericBlock successBlock = ^(NSData *data) {
+        NSError *error;
+        NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        NSString *url = [jsonObject[0] objectForKey:@"url"];
+        NSLog(@"%@",url);
+        [self notify:XCTAsyncTestCaseStatusSucceeded];
     };
     
     [diigoClient requestPath:@"bookmarks" method:@"GET" parameters:apiParameters success:(LHSDiigoGenericBlock)successBlock failure:nil];
+    [self waitForStatus: XCTAsyncTestCaseStatusSucceeded timeout:60];
     
    
 }

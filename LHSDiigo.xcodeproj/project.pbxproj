@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14F1419118F3950B00060FA5 /* XCTestCase+AsyncTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F1419018F3950B00060FA5 /* XCTestCase+AsyncTesting.m */; };
 		373115C918E235230072A986 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115C818E235230072A986 /* Foundation.framework */; };
 		373115CE18E235230072A986 /* LHSDiigoClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 373115CD18E235230072A986 /* LHSDiigoClient.h */; };
 		373115D018E235230072A986 /* LHSDiigoClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 373115CF18E235230072A986 /* LHSDiigoClient.m */; };
@@ -42,6 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14F1418F18F3950B00060FA5 /* XCTestCase+AsyncTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+AsyncTesting.h"; sourceTree = "<group>"; };
+		14F1419018F3950B00060FA5 /* XCTestCase+AsyncTesting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+AsyncTesting.m"; sourceTree = "<group>"; };
 		373115C518E235230072A986 /* libLHSDiigo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLHSDiigo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		373115C818E235230072A986 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		373115CC18E235230072A986 /* LHSDiigo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LHSDiigo-Prefix.pch"; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 		373115DF18E235230072A986 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14F1418F18F3950B00060FA5 /* XCTestCase+AsyncTesting.h */,
+				14F1419018F3950B00060FA5 /* XCTestCase+AsyncTesting.m */,
 				373115E018E235230072A986 /* LHSDiigoTests-Info.plist */,
 				373115E118E235230072A986 /* InfoPlist.strings */,
 			);
@@ -232,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F1419118F3950B00060FA5 /* XCTestCase+AsyncTesting.m in Sources */,
 				373115E518E235230072A986 /* LHSDiigoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
