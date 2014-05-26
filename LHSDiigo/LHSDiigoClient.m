@@ -32,6 +32,13 @@
 
 @end
 
+@interface LHSDiigoClient ()
+
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *password;
+
+@end
+
 @implementation LHSDiigoClient
 
 + (instancetype)sharedClient {
@@ -61,8 +68,11 @@
     
     NSString *body = [parameters _queryParametersToString];
     if (![method isEqualToString:@"POST"] && body) {
+        [urlComponents addObject:@"?"];
         [urlComponents addObject:body];
     }
+    
+    NSLog(@"%@", urlComponents);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[urlComponents componentsJoinedByString:@""]]];
     request.HTTPMethod = method;
@@ -71,8 +81,16 @@
         request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
     }
     
+    
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request
                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                     if (!error) {
+                                                         self.receivedData = data;
+                                                         success(data);
+                                                     }
+                                                     else {
+                                                         NSLog(@"%@",error);
+                                                     }
                                                      
                                                  }];
     [task resume];
@@ -80,20 +98,19 @@
 
 #pragma mark - Authentication
 
-- (void)setUsername:(NSString *)username
-           password:(NSString *)password {
-    NSURLCredential *credential = [NSURLCredential credentialWithUser:username
-                                                             password:password
-                                                          persistence:NSURLCredentialPersistencePermanent];
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+                            didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+                              completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition,NSURLCredential *credential))completionHandler {
     
-    NSURLProtectionSpace *protectionSpace = [[NSURLProtectionSpace alloc] initWithHost:@"diigo.com"
-                                                                                  port:0
-                                                                              protocol:@"https"
-                                                                                 realm:nil
-                                                                  authenticationMethod:NSURLAuthenticationMethodHTTPBasic];
-    
-    [self.session.configuration.URLCredentialStorage setDefaultCredential:credential
-                                                       forProtectionSpace:protectionSpace];
+    NSURLCredential *credential = [NSURLCredential credentialWithUser:self.username
+                                                             password:self.password
+                                                          persistence:NSURLCredentialPersistenceForSession];
+    completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+}
+
+- (void)setUsername:(NSString *)username password:(NSString *)password {
+    self.username = username;
+    self.password = password;
 }
 
 @end
