@@ -32,4 +32,24 @@ typedef void (^LHSDiigoErrorBlock)(NSError *);
 - (void)setUsername:(NSString *)username
            password:(NSString *)password;
 
+
+
+- (void)bookmarksWithTag:(NSString *)tags
+                  offset:(NSInteger)offset
+                   count:(NSInteger)count
+                    sort:(NSInteger)sort
+                  filter:(NSString *)filter
+                    list:(NSString *)list
+                 success:(LHSDiigoGenericBlock)success
+                 failure:(LHSDiigoErrorBlock)failure;
+
+- (void)addBookmarkWithURL:(NSString *)url
+                     title:(NSString *)title
+               description:(NSString *)description
+                      tags:(NSArray *)tags
+                    shared:(NSString *)shared
+                 readLater:(NSString *)readLater
+                   success:(LHSDiigoGenericBlock)success
+                   failure:(LHSDiigoErrorBlock)failure;
+
 @end

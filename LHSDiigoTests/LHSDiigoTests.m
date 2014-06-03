@@ -41,10 +41,11 @@
         [self notify:XCTAsyncTestCaseStatusSucceeded];
     };
     
-    [diigoClient requestPath:@"bookmarks" method:@"GET" parameters:apiParameters success:successBlock failure:nil];
+//    [diigoClient bookmarksWithTag:@"google" offset:0 count:10 sort:0 filter:nil list:nil success:successBlock failure:nil];
+//    [self waitForStatus: XCTAsyncTestCaseStatusSucceeded timeout:60];
+    NSArray *tags = [NSArray arrayWithObjects:@"china",@"qq",nil];
+    [diigoClient addBookmarkWithURL:@"http://www.qq.com/" title:@"qq"description:@"qqqq" tags:tags shared:@"yes" readLater:@"no" success:nil failure:nil];
     [self waitForStatus: XCTAsyncTestCaseStatusSucceeded timeout:60];
-    
-   
 }
 
 @end
