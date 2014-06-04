@@ -58,17 +58,13 @@
 - (void)requestPath:(NSString *)path
              method:(NSString *)method
          parameters:(NSDictionary *)parameters
-            success:(LHSDiigoGenericBlock)success
-            failure:(LHSDiigoErrorBlock)failure {
-    if (!failure) {
-        failure = ^(NSError *error) {};
-    }
+            completion:(LHSDiigoGenericBlock)completion {
     
     NSMutableArray *urlComponents = [NSMutableArray arrayWithObject:LHSDiigoBaseURL];
     [urlComponents addObject:path];
     
     NSString *body = [parameters _queryParametersToString];
-    if (body) {
+    if (![method isEqualToString:@"POST"] && body) {
         [urlComponents addObject:@"?"];
         [urlComponents addObject:body];
     }
@@ -85,26 +81,14 @@
     
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request
                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                     if ([method isEqualToString:@"POST"]) {
-                                                         if (!error) {
-                                                            
-                                                         }
-                                                         else {
-                                                             NSLog(@"%@",error);
-                                                         }
-
+                                                     if (error) {
+                                                         completion(nil,error);
                                                      }
                                                      else {
-                                                         if (!error) {
-                                                             self.receivedData = data;
-                                                             success(data);
-                                                         }
-                                                         else {
-                                                             NSLog(@"%@",error);
-                                                         }
-
+                                                         self.receivedData = data;
+                                                         completion(data,nil);
                                                      }
-                                                     
+
                                                  }];
     [task resume];
 }
@@ -130,24 +114,35 @@
 #pragma mark - Bookmarks
 
 - (void)bookmarksWithTag:(NSString *)tags
-                  offset:(NSInteger)offset
+                  start:(NSInteger)start
                    count:(NSInteger)count
                     sort:(NSInteger)sort
                   filter:(NSString *)filter
                     list:(NSString *)list
-                 success:(LHSDiigoGenericBlock)success
-                 failure:(LHSDiigoErrorBlock)failure {
+                 completion:(LHSDiigoGenericBlock)completion {
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"key"] = @"37d50bc8a88b01b5";
+    parameters[@"key"] = LHSDiigoAPIKey;
     parameters[@"user"] = self.username;
-    if (tags) parameters[@"tags"] = tags;
-    if (offset != -1) parameters[@"start"] = [NSString stringWithFormat:@"%ld", (long)offset];
-    if (count != -1 ) parameters[@"count"] = [NSString stringWithFormat:@"%ld", (long)count];
-    if (sort) parameters[@"sort"] = [NSString stringWithFormat:@"%ld", (long)sort];
-    if (filter) parameters[@"filter"] = filter;
-    if (list) parameters[@"list"] = list;
-    [self requestPath:@"bookmarks" method:@"GET" parameters:parameters success:success failure:failure];
+    if (tags) {
+       parameters[@"tags"] = tags;
+    }
+    if (start != -1) {
+     parameters[@"start"] = [NSString stringWithFormat:@"%ld", (long)start];
+    }
+    if (count != -1 ) {
+        parameters[@"count"] = [NSString stringWithFormat:@"%ld", (long)count];
+    }
+    if (sort) {
+        parameters[@"sort"] = [NSString stringWithFormat:@"%ld", (long)sort];
+    }
+    if (filter) {
+       parameters[@"filter"] = filter;
+    }
+    if (list) {
+        parameters[@"list"] = list;
+    }
+    [self requestPath:@"bookmarks" method:@"GET" parameters:parameters completion:completion];
     
 }
 
@@ -157,21 +152,26 @@
                       tags:(NSArray *)tags
                     shared:(NSString *)shared
                  readLater:(NSString *)readLater
-                   success:(LHSDiigoGenericBlock)success
-                   failure:(LHSDiigoErrorBlock)failure {
+                   completion:(LHSDiigoGenericBlock)completion {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"key"] = @"37d50bc8a88b01b5";
+    parameters[@"key"] = LHSDiigoAPIKey;
     parameters[@"url"] = url;
     parameters[@"title"] = title;
-    if (description) parameters[@"description"] = description;
-    if(tags) {
+    if (description) {
+       parameters[@"description"] = description;
+    }
+    if (tags) {
         NSString *encodedTags = [tags componentsJoinedByString:@","];
         parameters[@"tags"] = encodedTags;
     }
-    if(shared) parameters[@"shared"] = shared;
-    if(readLater)   parameters[@"readLater"] = readLater;
+    if (shared) {
+        parameters[@"shared"] = shared;
+    }
+    if(readLater) {
+        parameters[@"readLater"] = readLater;
+    }
     
-    [self requestPath:@"bookmarks" method:@"POST" parameters:parameters success:success failure:failure];
+    [self requestPath:@"bookmarks" method:@"POST" parameters:parameters completion:completion];
 }
 
 @end

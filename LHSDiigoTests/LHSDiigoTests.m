@@ -33,18 +33,18 @@
     NSDictionary *apiParameters = @{ @"key" : @"37d50bc8a88b01b5", @"user" : @"jerrypainter"};
     [diigoClient setUsername:@"jerrypainter" password:@"wzx13605701028"];
     
-    LHSDiigoGenericBlock successBlock = ^(NSData *data) {
-        NSError *error;
+    LHSDiigoGenericBlock completion = ^(NSData *data, NSError* error) {
         NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         NSString *url = [jsonObject[0] objectForKey:@"url"];
         NSLog(@"%@",url);
         [self notify:XCTAsyncTestCaseStatusSucceeded];
     };
     
-//    [diigoClient bookmarksWithTag:@"google" offset:0 count:10 sort:0 filter:nil list:nil success:successBlock failure:nil];
+//    [diigoClient bookmarksWithTag:@"google" start:0 count:10 sort:0 filter:nil list:nil completion:completion];
 //    [self waitForStatus: XCTAsyncTestCaseStatusSucceeded timeout:60];
-    NSArray *tags = [NSArray arrayWithObjects:@"china",@"qq",nil];
-    [diigoClient addBookmarkWithURL:@"http://www.qq.com/" title:@"qq"description:@"qqqq" tags:tags shared:@"yes" readLater:@"no" success:nil failure:nil];
+    
+    NSArray *tags = [NSArray arrayWithObjects:@"tech",@"git",nil];
+    [diigoClient addBookmarkWithURL:@"http://www.github.com/" title:@"github"description:@"github" tags:tags shared:@"yes" readLater:@"no" completion:completion];
     [self waitForStatus: XCTAsyncTestCaseStatusSucceeded timeout:60];
 }
 

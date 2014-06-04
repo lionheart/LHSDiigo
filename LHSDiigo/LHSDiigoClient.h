@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 static NSString *LHSDiigoBaseURL = @"https://secure.diigo.com/api/v2/";
+static NSString *LHSDiigoAPIKey = @"37d50bc8a88b01b5";
 
 typedef void (^LHSDiigoEmptyBlock)();
-typedef void (^LHSDiigoGenericBlock)(id);
+typedef void (^LHSDiigoGenericBlock)(id, NSError *error );
 typedef void (^LHSDiigoArrayBlock)(NSArray *);
 typedef void (^LHSDiigoErrorBlock)(NSError *);
+
 
 @interface LHSDiigoClient : NSObject <NSURLConnectionDelegate, NSURLSessionDelegate, NSURLSessionDataDelegate>
 
@@ -26,8 +28,7 @@ typedef void (^LHSDiigoErrorBlock)(NSError *);
 - (void)requestPath:(NSString *)path
              method:(NSString *)method
          parameters:(NSDictionary *)parameters
-            success:(LHSDiigoGenericBlock)success
-            failure:(LHSDiigoErrorBlock)failure;
+         completion:(LHSDiigoGenericBlock)completion;
 
 - (void)setUsername:(NSString *)username
            password:(NSString *)password;
@@ -35,13 +36,12 @@ typedef void (^LHSDiigoErrorBlock)(NSError *);
 
 
 - (void)bookmarksWithTag:(NSString *)tags
-                  offset:(NSInteger)offset
+                  start:(NSInteger)start
                    count:(NSInteger)count
                     sort:(NSInteger)sort
                   filter:(NSString *)filter
                     list:(NSString *)list
-                 success:(LHSDiigoGenericBlock)success
-                 failure:(LHSDiigoErrorBlock)failure;
+                 completion:(LHSDiigoGenericBlock)completion;
 
 - (void)addBookmarkWithURL:(NSString *)url
                      title:(NSString *)title
@@ -49,7 +49,6 @@ typedef void (^LHSDiigoErrorBlock)(NSError *);
                       tags:(NSArray *)tags
                     shared:(NSString *)shared
                  readLater:(NSString *)readLater
-                   success:(LHSDiigoGenericBlock)success
-                   failure:(LHSDiigoErrorBlock)failure;
+                completion:(LHSDiigoGenericBlock)completion;
 
 @end
