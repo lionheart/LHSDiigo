@@ -141,24 +141,31 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"key"] = self.key;
     parameters[@"user"] = self.username;
+    
     if (tags) {
        parameters[@"tags"] = tags;
     }
+    
     if (start != -1) {
      parameters[@"start"] = [@(start) stringValue];
     }
+    
     if (count != -1 ) {
         parameters[@"count"] = [@(count) stringValue];
     }
+    
     if (sort) {
         parameters[@"sort"] = [@(sort) stringValue];
     }
+    
     if (filter) {
        parameters[@"filter"] = filter;
     }
+    
     if (list) {
         parameters[@"list"] = list;
     }
+    
     [self requestPath:@"bookmarks" method:@"GET" parameters:parameters completion:completion];
     
 }
@@ -174,16 +181,20 @@
     parameters[@"key"] = self.key;
     parameters[@"url"] = url;
     parameters[@"title"] = title;
+    
     if (description) {
        parameters[@"description"] = description;
     }
+    
     if (tags) {
         NSString *encodedTags = [tags componentsJoinedByString:@","];
         parameters[@"tags"] = encodedTags;
     }
+    
     if (shared) {
         parameters[@"shared"] = shared;
     }
+    
     if (readLater) {
         parameters[@"readLater"] = readLater;
     }
