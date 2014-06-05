@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 static NSString *LHSDiigoBaseURL = @"https://secure.diigo.com/api/v2/";
-static NSString *LHSDiigoAPIKey = @"37d50bc8a88b01b5";
+
 
 typedef void (^LHSDiigoEmptyBlock)();
 typedef void (^LHSDiigoGenericBlock)(id, NSError *error );
@@ -19,9 +19,9 @@ typedef void (^LHSDiigoErrorBlock)(NSError *);
 
 @interface LHSDiigoClient : NSObject <NSURLConnectionDelegate, NSURLSessionDelegate, NSURLSessionDataDelegate>
 
-@property (nonatomic, strong) NSString *apiKey;
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSData *receivedData;
+@property (nonatomic, strong) NSString *ApiKey;
 
 + (instancetype)sharedClient;
 
@@ -31,7 +31,8 @@ typedef void (^LHSDiigoErrorBlock)(NSError *);
          completion:(LHSDiigoGenericBlock)completion;
 
 - (void)setUsername:(NSString *)username
-           password:(NSString *)password;
+           password:(NSString *)password
+             ApiKey:(NSString *)ApiKey;
 
 
 

@@ -58,8 +58,11 @@
 - (void)requestPath:(NSString *)path
              method:(NSString *)method
          parameters:(NSDictionary *)parameters
-            completion:(LHSDiigoGenericBlock)completion {
-    
+         completion:(LHSDiigoGenericBlock)completion {
+    if (!self.ApiKey) {
+        NSError *error;
+        completion(nil, error);
+    }
     NSMutableArray *urlComponents = [NSMutableArray arrayWithObject:LHSDiigoBaseURL];
     [urlComponents addObject:path];
     
@@ -82,11 +85,11 @@
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request
                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                      if (error) {
-                                                         completion(nil,error);
+                                                         completion(nil, error);
                                                      }
                                                      else {
                                                          self.receivedData = data;
-                                                         completion(data,nil);
+                                                         completion(data, nil);
                                                      }
 
                                                  }];
@@ -105,9 +108,10 @@
     completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
 }
 
-- (void)setUsername:(NSString *)username password:(NSString *)password {
+- (void)setUsername:(NSString *)username password:(NSString *)password ApiKey:(NSString *)ApiKey{
     self.username = username;
     self.password = password;
+    self.ApiKey = ApiKey;
 }
 
 
@@ -122,19 +126,19 @@
                  completion:(LHSDiigoGenericBlock)completion {
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"key"] = LHSDiigoAPIKey;
+    parameters[@"key"] = self.ApiKey;
     parameters[@"user"] = self.username;
     if (tags) {
        parameters[@"tags"] = tags;
     }
     if (start != -1) {
-     parameters[@"start"] = [NSString stringWithFormat:@"%ld", (long)start];
+     parameters[@"start"] = [@(start) stringValue];
     }
     if (count != -1 ) {
-        parameters[@"count"] = [NSString stringWithFormat:@"%ld", (long)count];
+        parameters[@"count"] = [@(count) stringValue];
     }
     if (sort) {
-        parameters[@"sort"] = [NSString stringWithFormat:@"%ld", (long)sort];
+        parameters[@"sort"] = [@(sort) stringValue];
     }
     if (filter) {
        parameters[@"filter"] = filter;
@@ -154,7 +158,7 @@
                  readLater:(NSString *)readLater
                    completion:(LHSDiigoGenericBlock)completion {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"key"] = LHSDiigoAPIKey;
+    parameters[@"key"] = self.ApiKey;
     parameters[@"url"] = url;
     parameters[@"title"] = title;
     if (description) {
@@ -167,7 +171,7 @@
     if (shared) {
         parameters[@"shared"] = shared;
     }
-    if(readLater) {
+    if (readLater) {
         parameters[@"readLater"] = readLater;
     }
     
