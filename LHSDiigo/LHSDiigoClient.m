@@ -7,6 +7,7 @@
 //
 
 #import "LHSDiigoClient.h"
+#import "NSString+URLEncoding.h"
 
 @interface NSDictionary (LHSDiigoAdditions)
 
@@ -54,15 +55,28 @@
     return _sharedClient;
 }
 
++ (instancetype)sharedClientWithKey:(NSString *)key {
+    static LHSDiigoClient *_sharedClient;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedClient = [[LHSDiigoClient alloc] init];
+        
+        _sharedClient.session = [NSURLSession sessionWithConfiguration:nil
+                                                              delegate:_sharedClient
+                                                         delegateQueue:[NSOperationQueue currentQueue]];
+        _sharedClient.key = key;
+    });
+    return _sharedClient;
+}
+
 - (void)requestPath:(NSString *)path
              method:(NSString *)method
          parameters:(NSDictionary *)parameters
-            success:(LHSDiigoGenericBlock)success
-            failure:(LHSDiigoErrorBlock)failure {
-    if (!failure) {
-        failure = ^(NSError *error) {};
+         completion:(LHSDiigoGenericBlock)completion {
+    if (!self.key) {
+        NSError *error;
+        completion(nil, error);
     }
-    
     NSMutableArray *urlComponents = [NSMutableArray arrayWithObject:LHSDiigoBaseURL];
     [urlComponents addObject:path];
     
@@ -71,7 +85,7 @@
         [urlComponents addObject:@"?"];
         [urlComponents addObject:body];
     }
-    
+ 
     NSLog(@"%@", urlComponents);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[urlComponents componentsJoinedByString:@""]]];
@@ -84,14 +98,14 @@
     
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request
                                                  completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                     if (!error) {
-                                                         self.receivedData = data;
-                                                         success(data);
+                                                     if (error) {
+                                                         completion(nil, error);
                                                      }
                                                      else {
-                                                         NSLog(@"%@",error);
+                                                         self.receivedData = data;
+                                                         completion(data, nil);
                                                      }
-                                                     
+
                                                  }];
     [task resume];
 }
@@ -111,6 +125,81 @@
 - (void)setUsername:(NSString *)username password:(NSString *)password {
     self.username = username;
     self.password = password;
+}
+
+
+#pragma mark - Bookmarks
+
+- (void)bookmarksWithTag:(NSString *)tags
+                  start:(NSInteger)start
+                   count:(NSInteger)count
+                    sort:(NSInteger)sort
+                  filter:(NSString *)filter
+                    list:(NSString *)list
+                 completion:(LHSDiigoGenericBlock)completion {
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"key"] = self.key;
+    parameters[@"user"] = self.username;
+    
+    if (tags) {
+       parameters[@"tags"] = tags;
+    }
+    
+    if (start != -1) {
+     parameters[@"start"] = [@(start) stringValue];
+    }
+    
+    if (count != -1 ) {
+        parameters[@"count"] = [@(count) stringValue];
+    }
+    
+    if (sort) {
+        parameters[@"sort"] = [@(sort) stringValue];
+    }
+    
+    if (filter) {
+       parameters[@"filter"] = filter;
+    }
+    
+    if (list) {
+        parameters[@"list"] = list;
+    }
+    
+    [self requestPath:@"bookmarks" method:@"GET" parameters:parameters completion:completion];
+    
+}
+
+- (void)addBookmarkWithURL:(NSString *)url
+                     title:(NSString *)title
+               description:(NSString *)description
+                      tags:(NSArray *)tags
+                    shared:(NSString *)shared
+                 readLater:(NSString *)readLater
+                   completion:(LHSDiigoGenericBlock)completion {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"key"] = self.key;
+    parameters[@"url"] = url;
+    parameters[@"title"] = title;
+    
+    if (description) {
+       parameters[@"description"] = description;
+    }
+    
+    if (tags) {
+        NSString *encodedTags = [tags componentsJoinedByString:@","];
+        parameters[@"tags"] = encodedTags;
+    }
+    
+    if (shared) {
+        parameters[@"shared"] = shared;
+    }
+    
+    if (readLater) {
+        parameters[@"readLater"] = readLater;
+    }
+    
+    [self requestPath:@"bookmarks" method:@"POST" parameters:parameters completion:completion];
 }
 
 @end

@@ -17,6 +17,7 @@
 		373115DD18E235230072A986 /* libLHSDiigo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373115C518E235230072A986 /* libLHSDiigo.a */; };
 		373115E318E235230072A986 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 373115E118E235230072A986 /* InfoPlist.strings */; };
 		373115E518E235230072A986 /* LHSDiigoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 373115E418E235230072A986 /* LHSDiigoTests.m */; };
+		6D40D6F1193F6C7D003022EF /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D40D6F0193F6C7D003022EF /* NSString+URLEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		373115E018E235230072A986 /* LHSDiigoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LHSDiigoTests-Info.plist"; sourceTree = "<group>"; };
 		373115E218E235230072A986 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		373115E418E235230072A986 /* LHSDiigoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSDiigoTests.m; sourceTree = "<group>"; };
+		6D40D6EF193F6C7D003022EF /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		6D40D6F0193F6C7D003022EF /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 		373115CA18E235230072A986 /* LHSDiigo */ = {
 			isa = PBXGroup;
 			children = (
+				6D40D6EF193F6C7D003022EF /* NSString+URLEncoding.h */,
+				6D40D6F0193F6C7D003022EF /* NSString+URLEncoding.m */,
 				373115CD18E235230072A986 /* LHSDiigoClient.h */,
 				373115CF18E235230072A986 /* LHSDiigoClient.m */,
 				373115CB18E235230072A986 /* Supporting Files */,
@@ -229,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D40D6F1193F6C7D003022EF /* NSString+URLEncoding.m in Sources */,
 				373115D018E235230072A986 /* LHSDiigoClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,26 +10,46 @@
 
 static NSString *LHSDiigoBaseURL = @"https://secure.diigo.com/api/v2/";
 
+
 typedef void (^LHSDiigoEmptyBlock)();
-typedef void (^LHSDiigoGenericBlock)(id);
+typedef void (^LHSDiigoGenericBlock)(id, NSError *error );
 typedef void (^LHSDiigoArrayBlock)(NSArray *);
 typedef void (^LHSDiigoErrorBlock)(NSError *);
 
+
 @interface LHSDiigoClient : NSObject <NSURLConnectionDelegate, NSURLSessionDelegate, NSURLSessionDataDelegate>
 
-@property (nonatomic, strong) NSString *apiKey;
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSData *receivedData;
+@property (nonatomic, strong) NSString *key;
 
 + (instancetype)sharedClient;
++ (instancetype)sharedClientWithKey: (NSString *)key;
 
 - (void)requestPath:(NSString *)path
              method:(NSString *)method
          parameters:(NSDictionary *)parameters
-            success:(LHSDiigoGenericBlock)success
-            failure:(LHSDiigoErrorBlock)failure;
+         completion:(LHSDiigoGenericBlock)completion;
 
 - (void)setUsername:(NSString *)username
            password:(NSString *)password;
+
+
+
+- (void)bookmarksWithTag:(NSString *)tags
+                  start:(NSInteger)start
+                   count:(NSInteger)count
+                    sort:(NSInteger)sort
+                  filter:(NSString *)filter
+                    list:(NSString *)list
+                 completion:(LHSDiigoGenericBlock)completion;
+
+- (void)addBookmarkWithURL:(NSString *)url
+                     title:(NSString *)title
+               description:(NSString *)description
+                      tags:(NSArray *)tags
+                    shared:(NSString *)shared
+                 readLater:(NSString *)readLater
+                completion:(LHSDiigoGenericBlock)completion;
 
 @end
