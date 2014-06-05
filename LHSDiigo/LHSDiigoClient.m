@@ -55,11 +55,25 @@
     return _sharedClient;
 }
 
++ (instancetype)sharedClientWithKey:(NSString *)key {
+    static LHSDiigoClient *_sharedClient;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedClient = [[LHSDiigoClient alloc] init];
+        
+        _sharedClient.session = [NSURLSession sessionWithConfiguration:nil
+                                                              delegate:_sharedClient
+                                                         delegateQueue:[NSOperationQueue currentQueue]];
+        _sharedClient.key = key;
+    });
+    return _sharedClient;
+}
+
 - (void)requestPath:(NSString *)path
              method:(NSString *)method
          parameters:(NSDictionary *)parameters
          completion:(LHSDiigoGenericBlock)completion {
-    if (!self.ApiKey) {
+    if (!self.key) {
         NSError *error;
         completion(nil, error);
     }
@@ -108,10 +122,9 @@
     completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
 }
 
-- (void)setUsername:(NSString *)username password:(NSString *)password ApiKey:(NSString *)ApiKey{
+- (void)setUsername:(NSString *)username password:(NSString *)password {
     self.username = username;
     self.password = password;
-    self.ApiKey = ApiKey;
 }
 
 
@@ -126,7 +139,7 @@
                  completion:(LHSDiigoGenericBlock)completion {
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"key"] = self.ApiKey;
+    parameters[@"key"] = self.key;
     parameters[@"user"] = self.username;
     if (tags) {
        parameters[@"tags"] = tags;
@@ -158,7 +171,7 @@
                  readLater:(NSString *)readLater
                    completion:(LHSDiigoGenericBlock)completion {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"key"] = self.ApiKey;
+    parameters[@"key"] = self.key;
     parameters[@"url"] = url;
     parameters[@"title"] = title;
     if (description) {

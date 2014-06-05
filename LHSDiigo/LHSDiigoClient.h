@@ -21,9 +21,10 @@ typedef void (^LHSDiigoErrorBlock)(NSError *);
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSData *receivedData;
-@property (nonatomic, strong) NSString *ApiKey;
+@property (nonatomic, strong) NSString *key;
 
 + (instancetype)sharedClient;
++ (instancetype)sharedClientWithKey: (NSString *)key;
 
 - (void)requestPath:(NSString *)path
              method:(NSString *)method
@@ -31,8 +32,7 @@ typedef void (^LHSDiigoErrorBlock)(NSError *);
          completion:(LHSDiigoGenericBlock)completion;
 
 - (void)setUsername:(NSString *)username
-           password:(NSString *)password
-             ApiKey:(NSString *)ApiKey;
+           password:(NSString *)password;
 
 
 
